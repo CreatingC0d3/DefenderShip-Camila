@@ -1,0 +1,81 @@
+Información del proyecto DEFENDERSHIP
+
+Scenes: EscenaPrincipal
+
+Prefabs: NaveDefensora, NaveMosca, Proyectil, GameOverText, WinnerText
+
+Canvas: Button, scoreText, missedText
+
+Objects: GameManager, GeneradorNaves, EventSystem
+
+Objeto Hijo: NaveDefensora->PuntoDeDisparo
+
+Por favor podrias agregarle a la ultima version del manual esta parte:
+
+
+1. Crear el Efecto de Estrellas en el Fondo
+Opción 1: Usar un Particle System
+Crear un Objeto Particle System:
+
+En la ventana Hierarchy, haz clic derecho y selecciona Create > Effects > Particle System.
+Nombra este objeto StarBackground.
+Configurar el Particle System:
+
+Con el objeto StarBackground seleccionado, ve al Inspector y realiza las siguientes configuraciones:
+Duration: 5
+Looping: Activado (para que el efecto sea continuo)
+Start Lifetime: 2 (ajusta según la duración que deseas que tengan las estrellas en pantalla)
+Start Speed: 0 (las estrellas deben permanecer en su posición inicial)
+Start Size: Ajusta según el tamaño de las estrellas.
+Start Color: Blanco.
+Gravity Modifier: 0 (para que no caigan las partículas).
+Emission: Aumenta la cantidad de partículas para que parezca un cielo estrellado. Ajusta el Rate over Time.
+Shape: Selecciona Box y ajusta su tamaño para cubrir la pantalla.
+Renderer > Material: Usa un material que tenga un shader de partículas, por ejemplo, Particles/Additive.
+Ajustar la Posición:
+
+Coloca el StarBackground en el fondo de la escena, detrás de todos los demás elementos de tu juego.
+Opción 2: Usar una Animación Simple de Textura
+Crear una Textura de Estrellas:
+
+Puedes buscar o crear una textura de estrellas similar al fondo de "Star Wars".
+Crear un Objeto Quad para el Fondo:
+
+En la ventana Hierarchy, haz clic derecho y selecciona 3D Object > Quad.
+Nombra este objeto StarryBackground.
+Asigna la textura de estrellas al material del Quad.
+Configurar la Animación:
+
+Puedes animar el Quad para que la textura de estrellas se desplace lentamente, creando un efecto de movimiento.
+2. Integrar el Fondo en el Juego
+Ajustar la Cámara:
+
+Asegúrate de que la cámara en la escena esté configurada para ver el StarBackground o StarryBackground.
+Puedes ajustar la posición y el tamaño del Quad para cubrir toda la pantalla.
+Probar y Ajustar:
+
+Ejecuta el juego y ajusta las configuraciones hasta que consigas el efecto deseado. Puedes experimentar con diferentes configuraciones del Particle System o la animación de la textura.
+
+Pasos para Colocar el StarBackground Detrás de Todos los Elementos:
+Selecciona el Objeto StarBackground:
+
+En la ventana Hierarchy, selecciona el objeto StarBackground que contiene el Particle System o el Quad con la textura de estrellas.
+Ajusta la Posición en el Eje Z:
+
+Ve a la ventana Inspector mientras el StarBackground está seleccionado.
+Busca las propiedades de Transform.
+Asegúrate de que la posición en el eje Z (Position Z) sea menor que la de todos los demás elementos de la escena.
+Por ejemplo, si los demás elementos del juego están en Z = 0, puedes colocar el StarBackground en Z = -10.
+Ajustar el Orden en la Layer (Opcional):
+
+Si estás usando un Quad con una textura:
+
+Asegúrate de que el Render Mode del objeto esté configurado correctamente en el Inspector.
+En la sección Renderer, ajusta el Order in Layer a un valor más bajo que el de los demás elementos. Por ejemplo, si tus sprites tienen un Order in Layer de 0, coloca el StarBackground en -1.
+Si estás usando un Particle System:
+
+Asegúrate de que la opción Sorting Layer esté configurada en una capa que esté detrás de los demás elementos, o ajusta el Order in Layer del Particle System.
+Escalar para Cubrir Toda la Pantalla:
+
+Si estás usando un Quad, asegúrate de que su escala en los ejes X e Y sea lo suficientemente grande para cubrir toda la pantalla. Ajusta los valores de Scale en el Inspector según sea necesario.
+Si estás usando un Particle System, ajusta el tamaño del Shape a un Box que cubra toda la pantalla.
